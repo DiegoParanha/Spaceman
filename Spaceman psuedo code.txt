@@ -1,0 +1,36 @@
+# Spaceman Psuedo code
+
+1. Randomly generate a word from words object array.
+2. The blank length of letters from that object array will appear on screen
+3. prompt the player to guess a letter from the word box
+4. if player guessed correctly, the letter will appear in the blank spot and disappear from the word box
+4 - . if player guessed incorrectly, the letter will stay blank, still disappear from word box, but spaceman body part will appear
+5. If the full spaceman is drawn out (6 tries), he flies off into space, words come down, "OH NO THE SPACEMAN WAS LOST IN SPACE!"
+6. If word is guessed correctly, words comes down, "YOU SAVED THE SPACEMAN!"
+7. Reset Game button appears on the bottom of the screen (win or lose)
+
+_____________________________________________________
+
+words = {
+
+[’sun’], [’moon’], [’earth’], [’jupiter’], [’saturn’], [’ufo’], [’pluto’], [’mars’], [’uranus’], [’venus’], [’spaceman’], [’mercury’]
+
+}
+
+Create Guards to not be able to click anywhere else besides the word box
+
+/* constants */
+
+/* App’s States (variables) */
+
+/* Cached Element References */
+
+/* Event Listeners */
+
+/* Functions */
+
+init();
+
+function init() {
+
+}
