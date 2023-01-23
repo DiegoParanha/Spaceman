@@ -12,7 +12,7 @@ body {
 
 main {
     display: grid;
-    height: 60vmin;
+    height: 100vmin;
    
 }
 
@@ -24,6 +24,14 @@ main {
 h1 {
     display: flex;
     justify-content: center;
+    
+}
+
+#keyboard {
+    height: 50px;
+    color: white;
+    border: black solid 2px;
+    border-radius: 2vmin;
 }
 
 button {
