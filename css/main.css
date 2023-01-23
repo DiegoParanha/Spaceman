@@ -1,0 +1,46 @@
+* {
+   box-sizing: border-box;
+}
+
+body {
+    height: 100vmin;
+    width:100vmin;
+    flex-direction: column;
+    justify-content: center;
+    background-color: rgb(49, 46, 71);
+}
+
+main {
+    display: grid;
+    height: 60vmin;
+   
+}
+
+.spaceBG {
+    height: 70vmin;
+    width: 100vmin;
+}
+
+h1 {
+    display: flex;
+    justify-content: center;
+}
+
+button {
+    display: flex;
+    justify-content: center;
+    width: 20vmin;
+    margin: auto;
+    background-color: white;
+    color: black;
+    border: 5px solid black;
+    border-radius: 3vmin;
+    font-size: 2vmin;
+   
+
+}
+
+button:hover {
+    background-color: black;
+    color: white;
+  }
