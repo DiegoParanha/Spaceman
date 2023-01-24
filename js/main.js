@@ -1,75 +1,67 @@
-/* constants */
+/*----- constants -----*/
 const wordChoice = [
-  'sun', 
-  'ufo', 
-  'moon', 
-  'mars', 
-  'earth', 
-  'pluto', 
-  'venus', 
-  'saturn', 
-  'uranus', 
-  'jupiter', 
-  'mercury',
-  'spaceman'
-]
+    'sun', 
+    'ufo', 
+    'moon', 
+    'mars', 
+    'earth', 
+    'pluto', 
+    'venus', 
+    'saturn', 
+    'uranus', 
+    'jupiter', 
+    'mercury',
+    'spaceman'
+  ];
 
-// const alphabet = [
-//   'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 
-//   'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'
-// ]
+  const maxWrong = 6;
 
-// const alphabet = [
-//   "abcdefghijklmnopqrstuvwxyz"
-// ];
+  const IMGS = [
+    "img/spaceman.png/spaceman-0.jpg",
+    "img/spaceman.png/spaceman-1.jpg",
+    "img/spaceman.png/spaceman-2.jpg",
+    "img/spaceman.png/spaceman-3.jpg",
+    "img/spaceman.png/spaceman-4.jpg",
+    "img/spaceman.png/spaceman-5.jpg",
+    "img/spaceman.png/spaceman-6.jpg",
+];
 
-/* App’s States (variables) */
+/*----- state variables -----*/
 let answer = " ";
 let mistakes = 0;
-let maxWrong = 6;
 let guessed = [];
 let wordStatus = null;
+let gameStatus;
 
-/* Cached Element References */
-let wordSpotLight = document.getElementById("wordSpotLight");
 
-/* Event Listeners */
-// function wordBox() {
-//   let wordsHTML = alphabet[0].split('').join(' ');
+/*----- cached elements  -----*/
+const message = document.getElementById('message');
+const guess = document.getElementById('spotLight');
+const letterButtons = [...document.querySelectorAll('div > button')];
+const playButton = document.getElementById('play');
+const spaceman = document.querySelector('img');
 
-//   // document.getElementById('keyboard').innerHTML = wordsHTML
-//   document.getElementById('keyboard').createElement("div");
-//   const letters = document.innerHTML = `<button> alphabet </button>`
-// }
+  /*----- event listeners -----*/
+document.getElementById("keyboard").addEventListener("click", handleClick);
+playButton.addEventListener("click", init);
 
-/* Functions */
+  /*----- functions -----*/
 init();
 
+function handleClick(evt) {
+    console.log(evt.target);
+}
 
 function init() {
-
-
-
+    console.log('hello');
+    guessed = [];
+    answer = wordChoice[Math.floor(Math.random() * wordChoice.length)].split('');
+    wordStatus = answer.map(letter => ' _ ');
+    gameStatus = null;
     render();
-}
-
-
-function render() {
-
 };
 
-function generateWord() {
-  answer = wordChoice[Math.floor(Math.random() * wordChoice.length)];
-  alert(answer);
+function render() {
+    guess.textContent = wordStatus.join("");
+    spaceman.src = `img/spaceman-${guessed.length}.jpg`
 }
-
-
-
-
-
-
-generateWord();
-wordBox();
-
-
-
