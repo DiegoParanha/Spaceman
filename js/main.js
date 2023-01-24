@@ -1,32 +1,52 @@
 /* constants */
 const wordChoice = [
   'sun', 
-  'moon', 
-  'earth', 
-  'jupiter', 
-  'saturn', 
   'ufo', 
-  'pluto', 
+  'moon', 
   'mars', 
-  'uranus', 
+  'earth', 
+  'pluto', 
   'venus', 
-  'spaceman', 
-  'mercury'
+  'saturn', 
+  'uranus', 
+  'jupiter', 
+  'mercury',
+  'spaceman'
 ]
 
+// const alphabet = [
+//   'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 
+//   'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'
+// ]
+
+const alphabet = [
+  "abcdefghijklmnopqrstuvwxyz"
+];
 
 /* App’s States (variables) */
-let answer = '';
+let answer = " ";
 let mistakes = 0;
 let maxWrong = 6;
 let guessed = [];
 let wordStatus = null;
 
 /* Cached Element References */
-
+let keyboard = document.getElementById("keyboard");
+let wordSpotLight = document.getElementById("wordSpotLight");
 
 /* Event Listeners */
+function wordBox() {
+  let wordsHTML = alphabet[0].split('').join(' ');
 
+  document.getElementById('keyboard').innerHTML = wordsHTML
+}
+
+
+function spotLight() {
+  for (let i = 0; i < wordChoice.length; i++) {
+    
+  }
+}
 
 /* Functions */
 init();
@@ -46,26 +66,16 @@ function render() {
 
 function generateWord() {
   answer = wordChoice[Math.floor(Math.random() * wordChoice.length)];
+  //alert(answer);
 }
 
 
-function wordBox() {
-  let wordsHTML = 'abcdefghijklmnopqrstuvwxyz'.split('').join(' ').toUpperCase();
-
-  document.getElementById('keyboard').innerHTML = wordsHTML
-}
 
 
-function guessedWord() {
-  wordStatus = answer.split('').map(letter => (guessed.indexOf(letter) >= 0 ? letter : " _ ")).join('');
 
-  document.getElementById('wordSpotLight').innerHTML = wordStatus
-}
-
-guessedWord();
 generateWord();
 wordBox();
-
+spotLight();
 
 
 
