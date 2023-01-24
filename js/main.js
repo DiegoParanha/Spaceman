@@ -29,7 +29,7 @@ const wordChoice = [
 /*----- state variables -----*/
 let answer = " ";
 let mistakes = 0;
-let guessed = [];
+let wrongGuesses = [];
 let wordStatus = null;
 let gameStatus;
 
@@ -49,12 +49,21 @@ playButton.addEventListener("click", init);
 init();
 
 function handleClick(evt) {
-    console.log(evt.target);
+    const letter = evt.target.textContent;
+    if (gameStatus || evt.target.tagName !== 'BUTTON' || wrongGuesses.includes(letter) || answer.includes(letter)) return;
+    console.log(evt.target.textContent);
+    if (answer.includes(letter)) {
+        answer.forEach((char, idx) => {
+            if (char === letter) wordStatus[idx] = letter
+        })
+    } else {
+        wrongGuesses.push(letter)
+    }
+    render();
 }
 
 function init() {
-    console.log('hello');
-    guessed = [];
+    wrongGuesses = [];
     answer = wordChoice[Math.floor(Math.random() * wordChoice.length)].split('');
     wordStatus = answer.map(letter => ' _ ');
     gameStatus = null;
@@ -63,5 +72,6 @@ function init() {
 
 function render() {
     guess.textContent = wordStatus.join("");
-    spaceman.src = `img/spaceman-${guessed.length}.jpg`
+    spaceman.src = `img/spaceman-${wrongGuesses.length}.jpg`;
 }
+
