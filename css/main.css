@@ -19,6 +19,12 @@ main {
     justify-content: flex-end;
 }
 
+#head {
+    height: 
+    border: black solid;
+    border-radius: 50%;
+}
+
 
 h1 {
     display: flex;
@@ -40,13 +46,30 @@ h2 {
 #keyboard {
     display: flex;
     justify-content: center;
-    height: 200px;
+    height: 60px;
     color: white;
     border: white solid 5px;
     border-radius: 4vmin;
 }
 
-button {
+#alphabet {
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 5vmin;
+    width: 6vmin;
+    border: 5px solid black;
+    border-radius: 5vmin;
+    font-size: 2vmin;
+}
+
+#alphabet:hover {
+    background-color: black;
+    color: white;
+}
+
+#reset {
     display: flex;
     justify-content: center;
     width: 20vmin;
@@ -60,7 +83,7 @@ button {
 
 }
 
-button:hover {
+#reset:hover {
     background-color: black;
     color: white;
   }

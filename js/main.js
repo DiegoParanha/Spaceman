@@ -19,9 +19,9 @@ const wordChoice = [
 //   'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'
 // ]
 
-const alphabet = [
-  "abcdefghijklmnopqrstuvwxyz"
-];
+// const alphabet = [
+//   "abcdefghijklmnopqrstuvwxyz"
+// ];
 
 /* App’s States (variables) */
 let answer = " ";
@@ -31,22 +31,16 @@ let guessed = [];
 let wordStatus = null;
 
 /* Cached Element References */
-let keyboard = document.getElementById("keyboard");
 let wordSpotLight = document.getElementById("wordSpotLight");
 
 /* Event Listeners */
-function wordBox() {
-  let wordsHTML = alphabet[0].split('').join(' ');
+// function wordBox() {
+//   let wordsHTML = alphabet[0].split('').join(' ');
 
-  document.getElementById('keyboard').innerHTML = wordsHTML
-}
-
-
-function spotLight() {
-  for (let i = 0; i < wordChoice.length; i++) {
-    
-  }
-}
+//   // document.getElementById('keyboard').innerHTML = wordsHTML
+//   document.getElementById('keyboard').createElement("div");
+//   const letters = document.innerHTML = `<button> alphabet </button>`
+// }
 
 /* Functions */
 init();
@@ -66,8 +60,9 @@ function render() {
 
 function generateWord() {
   answer = wordChoice[Math.floor(Math.random() * wordChoice.length)];
-  //alert(answer);
+  alert(answer);
 }
+
 
 
 
@@ -75,7 +70,6 @@ function generateWord() {
 
 generateWord();
 wordBox();
-spotLight();
 
 
 
