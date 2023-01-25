@@ -91,12 +91,17 @@ function render() {
 }
 
 
+// Add an outline to the words in the spotlight and words on screen to make them stand out
+// grey out keyboard letters when chosen
 
 // how to set a max limit for space man images
 // set a limit to once game is won
-// all buttons disappear and play button says Play again - maybe? 
+
+
 // fix win logic so loseMessage appears when maxWrong is hit
 // fix win logic so WinMessage appeats when answer is hit
+
+
+
+// all buttons disappear and play button says Play again - maybe? 
 // possibly add a hint button
-// Add an outline to the words in the spotlight and words on screen to make them stand out
-// grey out keyboard letters when chosen

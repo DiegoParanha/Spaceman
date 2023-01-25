@@ -43,18 +43,18 @@ h2 {
 #winMessage {
     display:flex;
     justify-content: center;
-    color: white;
-    font-size: 30px;
-    -webkit-text-stroke-width: .2px;
+    color: green;
+    font-size: 50px;
+    -webkit-text-stroke-width: 1.5px;
     -webkit-text-stroke-color: black;
 }
 
 #loseMessage {
     display:flex;
     justify-content: center;
-    color: white;
-    font-size: 30px;
-    -webkit-text-stroke-width: 2px;
+    color: red;
+    font-size: 50px;
+    -webkit-text-stroke-width: 1.5px;
     -webkit-text-stroke-color: black;
 }
 
@@ -70,7 +70,8 @@ h2 {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    height: 110px;
+    align-items: center;
+    height: 145px;
     width: 70vmin;
     margin: 2px auto;
     color: white;
