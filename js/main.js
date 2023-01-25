@@ -32,6 +32,7 @@ let mistakes = 0;
 let wrongGuesses = [];
 let wordStatus = null;
 let gameStatus;
+let winner;
 
 
 /*----- cached elements  -----*/
@@ -40,6 +41,8 @@ const guess = document.getElementById('spotLight');
 const letterButtons = [...document.querySelectorAll('div > button')];
 const playButton = document.getElementById('play');
 const spaceman = document.querySelector('img');
+const winMessage = document.getElementById('winMessage')
+const loseMessage = document.getElementById('loseMessage')
 
   /*----- event listeners -----*/
 document.getElementById("keyboard").addEventListener("click", handleClick);
@@ -48,10 +51,19 @@ playButton.addEventListener("click", init);
   /*----- functions -----*/
 init();
 
+function init() {
+    wrongGuesses = [];
+    answer = wordChoice[Math.floor(Math.random() * wordChoice.length)].split('');
+    wordStatus = answer.map(letter => ' _ ');
+    gameStatus = null;
+    winner = null;
+    render();
+};
+
 function handleClick(evt) {
     const letter = evt.target.textContent;
-    if (gameStatus || evt.target.tagName !== 'BUTTON' || wrongGuesses.includes(letter) || answer.includes(letter)) return;
-    console.log(evt.target.textContent);
+    if (gameStatus || evt.target.tagName !== 'BUTTON' || wrongGuesses.includes(letter)) return;
+        console.log(evt.target.textContent);
     if (answer.includes(letter)) {
         answer.forEach((char, idx) => {
             if (char === letter) wordStatus[idx] = letter
@@ -59,19 +71,32 @@ function handleClick(evt) {
     } else {
         wrongGuesses.push(letter)
     }
+    winner = getWinner();
     render();
 }
 
-function init() {
-    wrongGuesses = [];
-    answer = wordChoice[Math.floor(Math.random() * wordChoice.length)].split('');
-    wordStatus = answer.map(letter => ' _ ');
-    gameStatus = null;
-    render();
-};
+
+function getWinner() {
+    if (wordStatus === answer) {
+        winMessage.innerText = "You saved the Spaceman! :D";
+    } else (wordStatus === maxWrong) 
+      return  loseMessage.innerText = "The Spaceman was lost in space! :("
+    
+}
+
 
 function render() {
     guess.textContent = wordStatus.join("");
     spaceman.src = `img/spaceman-${wrongGuesses.length}.jpg`;
 }
 
+
+
+// how to set a max limit for space man images
+// set a limit to once game is won
+// all buttons disappear and play button says Play again - maybe? 
+// fix win logic so loseMessage appears when maxWrong is hit
+// fix win logic so WinMessage appeats when answer is hit
+// possibly add a hint button
+// Add an outline to the words in the spotlight and words on screen to make them stand out
+// grey out keyboard letters when chosen
