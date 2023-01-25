@@ -81,7 +81,6 @@ function getWinner() {
         winMessage.innerText = "You saved the Spaceman! :D";
     } else (wordStatus === maxWrong) 
       return  loseMessage.innerText = "The Spaceman was lost in space! :("
-    
 }
 
 
@@ -99,7 +98,7 @@ function render() {
 
 
 // fix win logic so loseMessage appears when maxWrong is hit
-// fix win logic so WinMessage appeats when answer is hit
+// fix win logic so WinMessage appears when answer is hit
 
 
 
