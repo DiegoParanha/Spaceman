@@ -43,23 +43,13 @@ h2 {
     color:white;
 }
 
-#winMessage {
+#message {
     display:flex;
     justify-content: center;
-    color: green;
-    margin: 40px 20px;
-    font-size: 50px;
-    -webkit-text-stroke-width: 1.5px;
-    -webkit-text-stroke-color: black;
-}
-
-#loseMessage {
-    display:flex;
-    margin: 20px;
-    justify-content: center;
-    color: red;
-    font-size: 50px;
-    -webkit-text-stroke-width: 1.5px;
+    margin: 40px;
+    font-size: 40px;
+    color: white;
+    -webkit-text-stroke-width: 0.5px;
     -webkit-text-stroke-color: black;
 }
 
@@ -93,13 +83,14 @@ h2 {
     width: 5vmin;
     color: aqua;
     background-color: black;
-    border: 3px solid black;
+    border: 3px solid aqua;
     border-radius: 3vmin;
     font-size: 2vmin;
 }
 
 #alphabet:hover {
     background-color: aqua;
+    border: 3px solid black;
     color: black;
 }
 
@@ -110,7 +101,7 @@ h2 {
     margin: 10px auto;
     background-color: black;
     color: white;
-    border: 5px solid black;
+    border: 5px solid aqua;
     border-radius: 3vmin;
     font-size: 2vmin;
 }
@@ -118,4 +109,6 @@ h2 {
 #play:hover {
     background-color: aqua;
     color: black;
+    border: 5px solid black;
+    border-radius: 3vmin;
   }

@@ -1,17 +1,27 @@
 /*----- constants -----*/
+const COLORS = {
+
+};
+
+
 const wordChoice = [
-    'sun', 
-    'ufo', 
-    'moon', 
-    'mars', 
-    'earth', 
-    'pluto', 
-    'venus', 
-    'saturn', 
-    'uranus', 
-    'jupiter', 
-    'mercury',
-    'spaceman'
+    'SUN', 
+    'UFO', 
+    'MOON',
+    'STAR',
+    'MARS', 
+    'EARTH', 
+    'PLUTO',
+    'COMET', 
+    'VENUS', 
+    'SATURN', 
+    'URANUS', 
+    'GALAXY',
+    'COSMOS',
+    'JUPITER', 
+    'MERCURY',
+    'SPACEMAN',
+    'SPACESHIP'
   ];
 
   const maxWrong = 6;
@@ -32,20 +42,19 @@ let mistakes = 0;
 let wrongGuesses = [];
 let wordStatus = null;
 let gameStatus;
-let winner;
 
 
 /*----- cached elements  -----*/
-const message = document.getElementById('message');
+const messageEl = document.getElementById('message');
 const guess = document.getElementById('spotLight');
 const letterButtons = [...document.querySelectorAll('div > button')];
 const playButton = document.getElementById('play');
 const spaceman = document.querySelector('img');
-const winMessage = document.getElementById('winMessage')
-const loseMessage = document.getElementById('loseMessage')
 
   /*----- event listeners -----*/
-document.getElementById("keyboard").addEventListener("click", handleClick);
+// document.getElementById
+const userClick = document.getElementById("keyboard");
+userClick.addEventListener("click", handleClick);
 playButton.addEventListener("click", init);
 
   /*----- functions -----*/
@@ -56,14 +65,14 @@ function init() {
     answer = wordChoice[Math.floor(Math.random() * wordChoice.length)].split('');
     wordStatus = answer.map(letter => ' _ ');
     gameStatus = null;
-    winner = null;
     render();
 };
 
+
 function handleClick(evt) {
     const letter = evt.target.textContent;
+    if(gameStatus === "W" || gameStatus === "L") return;
     if (gameStatus || evt.target.tagName !== 'BUTTON' || wrongGuesses.includes(letter)) return;
-        console.log(evt.target.textContent);
     if (answer.includes(letter)) {
         answer.forEach((char, idx) => {
             if (char === letter) wordStatus[idx] = letter
@@ -71,36 +80,64 @@ function handleClick(evt) {
     } else {
         wrongGuesses.push(letter)
     }
-    winner = getWinner();
+    gameStatus = getWinner();
     render();
 }
 
 
 function getWinner() {
-    if (wordStatus === answer) {
-        winMessage.innerText = "You saved the Spaceman! :D";
-    } else (wordStatus === maxWrong) 
-      return  loseMessage.innerText = "The Spaceman was lost in space! :("
+    if (!wordStatus.includes(" _ ")) return "W";
+    if (wrongGuesses.length > maxWrong -1) return "L";
+    return null;
 }
+
+
+function renderMessage() {
+    if (gameStatus === "W") {
+        messageEl.textContent = "You saved the Spaceman! :D"
+    } else if (gameStatus === "L") {
+        return messageEl.textContent = `The Spaceman was lost in space! :( The answer was ${answer.join("")}`
+    } else {
+        return messageEl.textContent = `You have ${maxWrong - wrongGuesses.length} guesses left`
+    }
+}
+
+function renderButton () {
+  
+}
+
+
+// render button function
+// correct turn green/ incorrect turn red
+// delcare render button function
+// iterate over our letter elements using forEach
+// declaring a variable called letter = to the iterator .textContent
+// conditonal if statement if incorrect letters.includes(letter) 
+// className = wrong
+// else if answer.includes(letter) = correct
+// else button.className = "" 
+
 
 
 function render() {
     guess.textContent = wordStatus.join("");
     spaceman.src = `img/spaceman-${wrongGuesses.length}.jpg`;
+    renderMessage();
 }
+
+render();
+
+
 
 
 // Add an outline to the words in the spotlight and words on screen to make them stand out
 // grey out keyboard letters when chosen
 
-// how to set a max limit for space man images
-// set a limit to once game is won
-
-
-// fix win logic so loseMessage appears when maxWrong is hit
-// fix win logic so WinMessage appears when answer is hit
 
 
 
 // all buttons disappear and play button says Play again - maybe? 
+// playButton.style.visibility = "W" ? 'visible' : 'hidden';
+// playButton.disabled = !"W"
+
 // possibly add a hint button
