@@ -1,9 +1,4 @@
 /*----- constants -----*/
-const COLORS = {
-
-};
-
-
 const wordChoice = [
     'SUN', 
     'UFO', 
@@ -15,6 +10,7 @@ const wordChoice = [
     'COMET', 
     'VENUS', 
     'SATURN', 
+    'METEOR',
     'URANUS', 
     'GALAXY',
     'COSMOS',
@@ -47,12 +43,11 @@ let gameStatus;
 /*----- cached elements  -----*/
 const messageEl = document.getElementById('message');
 const guess = document.getElementById('spotLight');
-const letterButtons = [...document.querySelectorAll('div > button')];
 const playButton = document.getElementById('play');
 const spaceman = document.querySelector('img');
+const letterBtns = [...document.querySelectorAll('#keyboard > button')];
 
   /*----- event listeners -----*/
-// document.getElementById
 const userClick = document.getElementById("keyboard");
 userClick.addEventListener("click", handleClick);
 playButton.addEventListener("click", init);
@@ -95,33 +90,36 @@ function getWinner() {
 function renderMessage() {
     if (gameStatus === "W") {
         messageEl.textContent = "You saved the Spaceman! :D"
+        messageEl.style.color = 'green';
     } else if (gameStatus === "L") {
-        return messageEl.textContent = `The Spaceman was lost in space! :( The answer was ${answer.join("")}`
+            messageEl.textContent = `The Spaceman was lost in space! :( The answer was ${answer.join("")}`
+            messageEl.style.color = 'red';
     } else {
-        return messageEl.textContent = `You have ${maxWrong - wrongGuesses.length} guesses left`
+            messageEl.textContent = `You have ${maxWrong - wrongGuesses.length} guesses left!`
+            messageEl.style.color = null;
+            
     }
 }
 
-function renderButton () {
-  
+function renderButtonStyle () {
+    letterBtns.forEach(function(btn) {
+        const letter = btn.textContent;
+        if (wrongGuesses.includes(letter)) {
+            btn.style.backgroundColor = 'red';
+        } else if (wordStatus.includes(letter)) {
+            btn.style.backgroundColor = 'green';
+        } else {
+            btn.style.backgroundColor = null;
+        }
+    }) 
 }
-
-
-// render button function
-// correct turn green/ incorrect turn red
-// delcare render button function
-// iterate over our letter elements using forEach
-// declaring a variable called letter = to the iterator .textContent
-// conditonal if statement if incorrect letters.includes(letter) 
-// className = wrong
-// else if answer.includes(letter) = correct
-// else button.className = "" 
 
 
 
 function render() {
-    guess.textContent = wordStatus.join("");
+    guess.textContent = wordStatus.join(" ");
     spaceman.src = `img/spaceman-${wrongGuesses.length}.jpg`;
+    renderButtonStyle();
     renderMessage();
 }
 
@@ -130,7 +128,7 @@ render();
 
 
 
-// Add an outline to the words in the spotlight and words on screen to make them stand out
+
 // grey out keyboard letters when chosen
 
 

@@ -112,3 +112,12 @@ h2 {
     border: 5px solid black;
     border-radius: 3vmin;
   }
+
+  .incorrectGuess {
+    border: solid red;
+   background-color: red;
+  }
+
+  .correctGuess {
+    background-color: green;
+  }
