@@ -3,7 +3,7 @@
 }
 
 body {
-    height: 100vh;
+    height: 100vmin;
     flex-direction: column;
     justify-content: center;
     background-image: url("https://wallpapers.com/images/file/our-solar-system-mural-aesthetic-c688izfbh9p16x9z.jpg");
@@ -13,7 +13,7 @@ body {
 }
 
 main {
-    height: 70vh;
+    height: 65vh;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
@@ -49,7 +49,7 @@ h2 {
     margin: 40px;
     font-size: 40px;
     color: white;
-    -webkit-text-stroke-width: 0.5px;
+    -webkit-text-stroke-width: 0.6px;
     -webkit-text-stroke-color: black;
 }
 
@@ -95,6 +95,7 @@ h2 {
 }
 
 #play {
+    /* visibility: hidden; */
     display: flex;
     justify-content: center;
     width: 20vmin;
@@ -106,18 +107,28 @@ h2 {
     font-size: 2vmin;
 }
 
-#play:hover {
+#hint {
+    display: flex;
+    justify-content: center;
+    width: 20vmin;
+    margin: 10px auto;
+    background-color: black;
+    color: white;
+    border: 5px solid aqua;
+    border-radius: 3vmin;
+    font-size: 2vmin;
+}
+
+#hint:hover {
     background-color: aqua;
     color: black;
     border: 5px solid black;
     border-radius: 3vmin;
   }
 
-  .incorrectGuess {
-    border: solid red;
-   background-color: red;
-  }
-
-  .correctGuess {
-    background-color: green;
+#play:hover {
+    background-color: aqua;
+    color: black;
+    border: 5px solid black;
+    border-radius: 3vmin;
   }

@@ -1,28 +1,49 @@
 /*----- constants -----*/
 const wordChoice = [
-    'SUN', 
-    'UFO', 
+    'SUN',
+    'UFO',
     'MOON',
     'STAR',
-    'MARS', 
-    'EARTH', 
+    'MARS',
+    'EARTH',
     'PLUTO',
-    'COMET', 
-    'VENUS', 
-    'SATURN', 
+    'COMET',
+    'VENUS',
+    'SATURN',
     'METEOR',
-    'URANUS', 
+    'URANUS',
     'GALAXY',
     'COSMOS',
-    'JUPITER', 
+    'JUPITER',
     'MERCURY',
     'SPACEMAN',
     'SPACESHIP'
-  ];
+];
 
-  const maxWrong = 6;
+const hints = [
+    'Burning ball of fire in the sky',
+    'Flying saucer',
+    'Opposite of the sun',
+    'Millions of them in the sky',
+    'Fourth planet from the sun',
+    'The planet we all live on',
+    'The planet that is not a planet anymore :(',
+    'A icy solar system body that releases gas',
+    "Known as Earth's sister planet",
+    'The planet with the giant ring around it',
+    'A rocky or metallic body from outer space',
+    'The seventh furthest planet from the sun',
+    'A system full of stars - Milky Way',
+    'Another name for the universe',
+    'The largest planet in our solar system',
+    'The smallest planet in our solar system',
+    'The man that is in space',
+    'A rocket that a spaceman flies in'
+];
 
-  const IMGS = [
+const maxWrong = 6;
+
+const IMGS = [
     "img/spaceman.png/spaceman-0.jpg",
     "img/spaceman.png/spaceman-1.jpg",
     "img/spaceman.png/spaceman-2.jpg",
@@ -46,13 +67,15 @@ const guess = document.getElementById('spotLight');
 const playButton = document.getElementById('play');
 const spaceman = document.querySelector('img');
 const letterBtns = [...document.querySelectorAll('#keyboard > button')];
+const hintButton = document.getElementById('hint');
 
-  /*----- event listeners -----*/
+/*----- event listeners -----*/
 const userClick = document.getElementById("keyboard");
 userClick.addEventListener("click", handleClick);
 playButton.addEventListener("click", init);
+// hintButton.addEventListener("click", )
 
-  /*----- functions -----*/
+/*----- functions -----*/
 init();
 
 function init() {
@@ -66,7 +89,7 @@ function init() {
 
 function handleClick(evt) {
     const letter = evt.target.textContent;
-    if(gameStatus === "W" || gameStatus === "L") return;
+    if (gameStatus === "W" || gameStatus === "L") return;
     if (gameStatus || evt.target.tagName !== 'BUTTON' || wrongGuesses.includes(letter)) return;
     if (answer.includes(letter)) {
         answer.forEach((char, idx) => {
@@ -82,7 +105,7 @@ function handleClick(evt) {
 
 function getWinner() {
     if (!wordStatus.includes(" _ ")) return "W";
-    if (wrongGuesses.length > maxWrong -1) return "L";
+    if (wrongGuesses.length > maxWrong - 1) return "L";
     return null;
 }
 
@@ -92,17 +115,17 @@ function renderMessage() {
         messageEl.textContent = "You saved the Spaceman! :D"
         messageEl.style.color = 'green';
     } else if (gameStatus === "L") {
-            messageEl.textContent = `The Spaceman was lost in space! :( The answer was ${answer.join("")}`
-            messageEl.style.color = 'red';
+        messageEl.textContent = `The Spaceman was lost in space! :( The answer was ${answer.join("")}`
+        messageEl.style.color = 'red';
     } else {
-            messageEl.textContent = `You have ${maxWrong - wrongGuesses.length} guesses left!`
-            messageEl.style.color = null;
-            
+        messageEl.textContent = `You have ${maxWrong - wrongGuesses.length} guesses left!`
+        messageEl.style.color = null;
+
     }
 }
 
-function renderButtonStyle () {
-    letterBtns.forEach(function(btn) {
+function renderButtonStyle() {
+    letterBtns.forEach(function (btn) {
         const letter = btn.textContent;
         if (wrongGuesses.includes(letter)) {
             btn.style.backgroundColor = 'red';
@@ -111,7 +134,7 @@ function renderButtonStyle () {
         } else {
             btn.style.backgroundColor = null;
         }
-    }) 
+    })
 }
 
 
@@ -125,16 +148,16 @@ function render() {
 
 render();
 
+// force win the game
+// gameStatus = "W" or "L"
+// render();
+
+//answer - to find the answer 
+
+// 
 
 
-
-
-// grey out keyboard letters when chosen
-
-
-
-
-// all buttons disappear and play button says Play again - maybe? 
+// all buttons disappear and Play Game button says Reset Game after - maybe? 
 // playButton.style.visibility = "W" ? 'visible' : 'hidden';
 // playButton.disabled = !"W"
 
