@@ -12,8 +12,18 @@
 _____________________________________________________
 
 words = {
-
-[’sun’], [’moon’], [’earth’], [’jupiter’], [’saturn’], [’ufo’], [’pluto’], [’mars’], [’uranus’], [’venus’], [’spaceman’], [’mercury’]
+[’sun’], 
+[’moon’], 
+[’earth’], 
+[’jupiter’], 
+[’saturn’], 
+[’ufo’], 
+[’pluto’], 
+[’mars’], 
+[’uranus’],
+[’venus’], 
+[’spaceman’], 
+[’mercury’]
 
 }
 

@@ -59,6 +59,7 @@ let mistakes = 0;
 let wrongGuesses = [];
 let wordStatus = null;
 let gameStatus;
+let hint;
 
 
 /*----- cached elements  -----*/
@@ -68,19 +69,23 @@ const playButton = document.getElementById('play');
 const spaceman = document.querySelector('img');
 const letterBtns = [...document.querySelectorAll('#keyboard > button')];
 const hintButton = document.getElementById('hint');
+const hintBox = document.getElementById('hintBox');
 
 /*----- event listeners -----*/
 const userClick = document.getElementById("keyboard");
 userClick.addEventListener("click", handleClick);
 playButton.addEventListener("click", init);
-// hintButton.addEventListener("click", )
+hintButton.addEventListener("click", getHint)
 
 /*----- functions -----*/
 init();
 
 function init() {
     wrongGuesses = [];
-    answer = wordChoice[Math.floor(Math.random() * wordChoice.length)].split('');
+    let idx = Math.floor(Math.random() * wordChoice.length)
+    answer = wordChoice[idx].split('');
+    hint = hints[idx];
+    hintBox.style.visibility = 'hidden';
     wordStatus = answer.map(letter => ' _ ');
     gameStatus = null;
     render();
@@ -115,12 +120,11 @@ function renderMessage() {
         messageEl.textContent = "You saved the Spaceman! :D"
         messageEl.style.color = 'green';
     } else if (gameStatus === "L") {
-        messageEl.textContent = `The Spaceman was lost in space! :( The answer was ${answer.join("")}`
+        messageEl.textContent = `The Spaceman was lost in space! :( The Answer was ${answer.join("")}`
         messageEl.style.color = 'red';
     } else {
         messageEl.textContent = `You have ${maxWrong - wrongGuesses.length} guesses left!`
         messageEl.style.color = null;
-
     }
 }
 
@@ -137,28 +141,30 @@ function renderButtonStyle() {
     })
 }
 
+function resetButton() {
+    if (gameStatus === null) {
+        playButton.innerHTML = "Reset";
+    } else playButton.innerHTML = "Play Again!";
+    
+}
 
+function getHint() {
+    hintBox.style.visibility = 'visible';
+    hintBox.innerHTML = hint;
+}
 
 function render() {
     guess.textContent = wordStatus.join(" ");
     spaceman.src = `img/spaceman-${wrongGuesses.length}.jpg`;
     renderButtonStyle();
+    resetButton();
     renderMessage();
 }
 
 render();
 
-// force win the game
-// gameStatus = "W" or "L"
-// render();
 
-//answer - to find the answer 
-
-// 
-
-
-// all buttons disappear and Play Game button says Reset Game after - maybe? 
-// playButton.style.visibility = "W" ? 'visible' : 'hidden';
-// playButton.disabled = !"W"
+// Play button says Reset Game after game starts
 
 // possibly add a hint button
+
