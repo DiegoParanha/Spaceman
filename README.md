@@ -9,10 +9,10 @@
 </div>
 
 # :alien: Screenshots
-<img src="https://imgur.com/a/9RUDdLn">
-<img src="https://imgur.com/a/niUaAED">
-<img src="https://imgur.com/a/amP1Bgb">
-<img src="https://imgur.com/a/xoawrJ9">
+<img src="https://i.imgur.com/6hR9T3Y_d.jpg?maxwidth=520&shape=thumb&fidelity=high">
+<img src="https://i.imgur.com/072PuU5_d.jpg?maxwidth=520&shape=thumb&fidelity=high">
+<img src="https://i.imgur.com/1vusvqi.jpeg">
+<img src="https://i.imgur.com/tYBru7d.jpg">
 
 
 # :rocket: Technologies Used
