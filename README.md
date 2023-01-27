@@ -31,4 +31,4 @@
 
 # :flying_saucer: Upcoming Features
 - Add a score counter that tracks words used / failed
-- Add a category of words to select from 
+- Add a category of words to select from
