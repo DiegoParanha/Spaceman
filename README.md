@@ -9,9 +9,10 @@
 </div>
 
 # :alien: Screenshots
-![This is an image] (game display.png) 
-![This is an image] (lose game display.png)
-![This is an image] (Win game display.png)
+- [How the game looks](Main.png)
+- [How the game looks when hint is active](HintActive.png)
+- [How the game looks when you lose](LossDisplay.png)
+- [How the game looks when you win](winDisplay.png)
 
 # :rocket: Technologies Used
 - ![HTML5](https://img.shields.io/badge/-HTML5-05122A?style=flat&logo=html5)
