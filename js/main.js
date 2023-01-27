@@ -120,7 +120,7 @@ function renderMessage() {
         messageEl.textContent = "You saved the Spaceman! :D"
         messageEl.style.color = 'green';
     } else if (gameStatus === "L") {
-        messageEl.textContent = `The Spaceman was lost in space! :( The Answer was ${answer.join("")}`
+        messageEl.innerHTML = `The Spaceman was lost in Space!:(` + `<span id="secret">The Answer was ${answer.join("")}</span>`
         messageEl.style.color = 'red';
     } else {
         messageEl.textContent = `You have ${maxWrong - wrongGuesses.length} guesses left!`
