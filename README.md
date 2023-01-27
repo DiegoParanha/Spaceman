@@ -9,8 +9,8 @@
 </div>
 
 # :alien: Screenshots
-<img src="https://i.imgur.com/6hR9T3Y_d.jpg?maxwidth=520&shape=thumb&fidelity=high">
-<img src="https://i.imgur.com/072PuU5_d.jpg?maxwidth=520&shape=thumb&fidelity=high">
+<img src="https://i.imgur.com/6hR9T3Y.jpg">
+<img src="https://i.imgur.com/072PuU5.jpg">
 <img src="https://i.imgur.com/1vusvqi.jpeg">
 <img src="https://i.imgur.com/tYBru7d.jpg">
 
