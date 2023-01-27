@@ -163,8 +163,3 @@ function render() {
 
 render();
 
-
-// Play button says Reset Game after game starts
-
-// possibly add a hint button
-
